@@ -57,7 +57,7 @@ uv run python audio_metrics.py test/files/LDC93S1.wav
 Differences between files are highlighted in yellow in the terminal.
 
 ```bash
-uv run python audio_metrics.py test/files/LDC93S1.wav test/files/Free_Test_Data_100KB_OGG.ogg
+uv run python audio_metrics.py test/files/sr006*
 ```
 
 ![Comparison example with tags](images/example2.png)
