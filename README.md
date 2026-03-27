@@ -47,63 +47,20 @@ uv run pytest test/
 ### Single file
 
 ```bash
-$ uv run python audio_metrics.py test/files/LDC93S1.wav
-
-            test/files/LDC93S1.wav
-┌─────────────────────────┬──────────────────┐
-│ File Size               │          0.09 MB │
-│ Sample Rate             │         16.0 kHz │
-│ Channels                │                1 │
-│ Duration                │     2.92 seconds │
-│ Total Samples           │            46797 │
-│ Bitrate                 │      256.10 kbps │
-│ Format                  │              WAV │
-│ Codec                   │           PCM_16 │
-│ Format Settings         │  Little / Signed │
-│ Bit Rate Mode           │              CBR │
-│ Bit Depth               │               16 │
-│                         │                  │
-│ Audio Statistics        │                  │
-│ Peak                    │      -21.40 dBFS │
-│ RMS                     │        -41.43 dB │
-│ Crest Factor            │ 10.04 (20.04 dB) │
-│ A-weighted RMS          │        -43.39 dB │
-│ A-weighted Crest Factor │ 14.35 (23.14 dB) │
-└─────────────────────────┴──────────────────┘
+uv run python audio_metrics.py test/files/LDC93S1.wav
 ```
+
+![Example Output](images/example1.png)
 
 ### Comparison (two files)
 
 Differences between files are highlighted in yellow in the terminal.
 
 ```bash
-$ uv run python audio_metrics.py test/files/LDC93S1.wav test/files/Free_Test_Data_100KB_OGG.ogg
-
-                            Audio Metrics Comparison
-┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                         ┃ test/files/LDC93S1.wav ┃ test/files/Free_Test_D... ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ File Size               │                0.09 MB │                   0.10 MB │
-│ Sample Rate             │               16.0 kHz │                  44.1 kHz │
-│ Channels                │                      1 │                         2 │
-│ Duration                │           2.92 seconds │              4.95 seconds │
-│ Total Samples           │                  46797 │                    218241 │
-│ Bitrate                 │            256.10 kbps │               166.95 kbps │
-│ Format                  │                    WAV │                       OGG │
-│ Codec                   │                 PCM_16 │                    VORBIS │
-│ Format Settings         │        Little / Signed │                       N/A │
-│ Bit Rate Mode           │                    CBR │                       VBR │
-│ Bit Depth               │                     16 │                       N/A │
-│ Writing Library         │                    N/A │   Xiph.Org libVorbis I... │
-│                         │                        │                           │
-│ Audio Statistics        │                        │                           │
-│ Peak                    │                 -21.40 │                      0.09 │
-│ RMS                     │                 -41.43 │                    -14.16 │
-│ Crest Factor            │       10.04 (20.04 dB) │           5.16 (14.25 dB) │
-│ A-weighted RMS          │                 -43.39 │                    -19.48 │
-│ A-weighted Crest Factor │       14.35 (23.14 dB) │           7.27 (17.23 dB) │
-└─────────────────────────┴────────────────────────┴───────────────────────────┘
+uv run python audio_metrics.py test/files/LDC93S1.wav test/files/Free_Test_Data_100KB_OGG.ogg
 ```
+
+![Comparison example with tags](images/example2.png)
 
 ## Supported formats
 
