@@ -22,22 +22,23 @@ console = Console()
 
 def calculate_audio_stats(audio_data: np.ndarray, sample_rate: int) -> dict:
     audio_float = audio_data.astype(np.float64)
+    epsilon = 1e-12
 
     rms_linear = np.sqrt(np.mean(audio_float ** 2))
-    rms_db = 20 * np.log10(rms_linear + 1e-12)
+    rms_db = 20 * np.log10(rms_linear + epsilon)
 
     peak_linear = np.max(np.abs(audio_float))
-    peak_dbfs = 20 * np.log10(peak_linear + 1e-12)
+    peak_dbfs = 20 * np.log10(peak_linear + epsilon)
 
-    crest_factor = peak_linear / (rms_linear + 1e-12)
-    crest_factor_db = 20 * np.log10(crest_factor)
+    crest_factor = peak_linear / (rms_linear + epsilon)
+    crest_factor_db = 20 * np.log10(crest_factor + epsilon)
 
     filtered_audio = A_weight(audio_float, sample_rate)
     a_peak_linear = np.max(np.abs(filtered_audio))
     a_weighted_rms_linear = np.sqrt(np.mean(filtered_audio ** 2))
-    a_weighted_rms_db = 20 * np.log10(a_weighted_rms_linear + 1e-12)
-    a_weighted_crest_factor = a_peak_linear / (a_weighted_rms_linear + 1e-12)
-    a_weighted_crest_factor_db = 20 * np.log10(a_weighted_crest_factor)
+    a_weighted_rms_db = 20 * np.log10(a_weighted_rms_linear + epsilon)
+    a_weighted_crest_factor = a_peak_linear / (a_weighted_rms_linear + epsilon)
+    a_weighted_crest_factor_db = 20 * np.log10(a_weighted_crest_factor + epsilon)
 
     return {
         "rms_db": rms_db,
