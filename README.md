@@ -9,7 +9,7 @@ I wrote this because I wanted a quick way to check the sample rate, bit depth, a
 Run directly from GitHub with uvx:
 
 ```bash
-uvx --from git+https://github.com/martin-hunt/audio_metrics media_compare <input1> [input2] [input3] [--verbose]
+uvx --from git+https://github.com/martin-hunt/audio_metrics audio_metrics <input1> [input2] [input3] [--verbose]
 ```
 
 Analyse a single file:
@@ -33,13 +33,19 @@ uv run python audio_metrics.py <input1> <input2> --verbose
 After `uv sync` the script is also available as an installed entry point:
 
 ```bash
-uv run media_compare <input1> <input2>
+uv run audio_metrics <input1> <input2>
 ```
 
 ## Running the tests
 
 ```bash
-uv run pytest test/
+uv run pytest
+```
+
+Or run tests with `uvx` (no prior setup needed):
+
+```bash
+uvx --from pytest --with . pytest
 ```
 
 ## Example output

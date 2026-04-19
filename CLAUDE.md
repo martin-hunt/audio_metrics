@@ -17,22 +17,34 @@ uv run audio_metrics <input1> [input2] [input3] [--verbose]
 Or after `uv sync`, directly via the installed script:
 
 ```bash
-media_compare <input1> [input2] [input3] [--verbose]
+audio_metrics <input1> [input2] [input3] [--verbose]
 ```
 
 Or without any setup, using `uvx` to run directly from the project directory:
 
 ```bash
-uvx --from . media_compare <input1> [input2] [input3] [--verbose]
+uvx --from . audio_metrics <input1> [input2] [input3] [--verbose]
 ```
 
 Or directly from GitHub without cloning:
 
 ```bash
-uvx --from git+https://github.com/martin-hunt/audio_metrics media_compare <input1> [input2] [input3] [--verbose]
+uvx --from git+https://github.com/martin-hunt/audio_metrics audio_metrics <input1> [input2] [input3] [--verbose]
 ```
 
 `--verbose` / `-v` prints metadata tags (ID3, Vorbis, FLAC, WAV INFO) after the main table.
+
+## Testing
+
+```bash
+uv run pytest
+```
+
+Or with `uvx` (no prior setup):
+
+```bash
+uvx --from pytest --with . pytest
+```
 
 ## Project structure
 

@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.scripts]
-media_compare = "audio_metrics:app"
+audio_metrics = "audio_metrics:app"
 
 [dependency-groups]
 dev = ["pytest"]
